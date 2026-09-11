@@ -111,10 +111,10 @@ export default function PsipopAdmin() {
     <div><h2>Update PSIPOP</h2><p>Upload the latest PSIPOP to compare existing personnel and update the roster. Previous values are retained for service-record preparation.</p></div>
     <button type="button" className={`${styles.drop} ${dragging ? styles.dragging : ''}`} disabled={busy || loading || Boolean(error)}
       onClick={() => input.current.click()}
-      onDragEnter={event => { console.log('[psipop] dragenter', event.dataTransfer?.types); event.preventDefault(); setDragging(true) }}
-      onDragOver={event => { console.log('[psipop] dragover', event.dataTransfer?.types); event.preventDefault(); setDragging(true) }}
-      onDragLeave={() => { console.log('[psipop] dragleave'); setDragging(false) }}
-      onDrop={event => { console.log('[psipop] drop', event.dataTransfer?.files?.length, [...(event.dataTransfer?.files || [])].map(f => f.name)); event.preventDefault(); setDragging(false); if (!busy && !loading && !error) scan(event.dataTransfer.files) }}>
+      onDragEnter={event => { event.preventDefault(); setDragging(true) }}
+      onDragOver={event => { event.preventDefault(); setDragging(true) }}
+      onDragLeave={() => setDragging(false)}
+      onDrop={event => { event.preventDefault(); setDragging(false); if (!busy && !loading && !error) scan(event.dataTransfer.files) }}>
       <strong>{busy ? 'Processing PSIPOP…' : 'Drop new PSIPOP files here'}</strong><span>or click to browse · PDF, JSON or CSV · up to 50 MB per file</span>
     </button>
     <input ref={input} type="file" accept=".pdf,.json,.csv" multiple hidden onChange={event => scan(event.target.files)} />
