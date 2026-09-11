@@ -7,6 +7,13 @@
 -- Master Teachers were being rejected by the CSV linker even though they can
 -- be assigned to a school by an AO like any other teacher — this is why many
 -- names in an uploaded CSV failed to link.
+--
+-- lcms_list_unassigned_employees (the CSV template source) had drifted out
+-- of sync with the functions above: it had no is_active or
+-- ao_assigned_school_id check at all, so the downloaded template could list
+-- separated employees and employees already claimed by another AO — names
+-- that were never going to successfully link regardless of position. Bring
+-- it in line with the same eligibility rule used everywhere else here.
 begin;
 
 drop function if exists public.lcms_search_teachers_by_name(text, text, text);
@@ -176,9 +183,36 @@ begin
 end;
 $$;
 
+create or replace function public.lcms_list_unassigned_employees()
+returns table(last_name text, first_name text, middle_name text)
+language plpgsql security definer set search_path = '' as $$
+declare
+  caller_school_id text;
+begin
+  select p.school_id into caller_school_id
+  from public."LCMS-profiles" p
+  where p.id = (select auth.uid()) and p.is_active;
+
+  if caller_school_id is null or caller_school_id in ('DEFAULT', 'UNASSIGNED') then
+    raise exception 'Only a school-based account can list unassigned employees';
+  end if;
+
+  return query
+    select e.last_name, e.first_name, e.middle_name
+    from public.leave_employees e
+    where e.school_id = 'UNASSIGNED'
+      and e.is_active
+      and e.ao_assigned_school_id is null
+      and not (e.position ~* 'principal|school head' or e.school_head_designate)
+    order by e.last_name, e.first_name;
+end;
+$$;
+
 revoke all on function public.lcms_search_teachers_by_name(text, text, text) from public;
 revoke all on function public.lcms_link_unassigned_employees_by_name(jsonb) from public;
+revoke all on function public.lcms_list_unassigned_employees() from public;
 grant execute on function public.lcms_search_teachers_by_name(text, text, text) to authenticated;
 grant execute on function public.lcms_link_unassigned_employees_by_name(jsonb) to authenticated;
+grant execute on function public.lcms_list_unassigned_employees() to authenticated;
 
 commit;
