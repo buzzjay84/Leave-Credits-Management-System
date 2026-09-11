@@ -1,0 +1,597 @@
+[
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570278-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "BADJAO FLOATING INTEGRATED SCHOOL",
+    "source_file": "16 BFIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GCOOR1-570012-1998",
+    "position": "GUIDANCE COORDINATOR I",
+    "salary_grade": "14",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570003-1998",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC3-570015-1998",
+    "position": "GUIDANCE COUNSELOR III",
+    "salary_grade": "13",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC3-570016-1998",
+    "position": "GUIDANCE COUNSELOR III",
+    "salary_grade": "13",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH1-570001-2006",
+    "position": "HEAD TEACHER I",
+    "salary_grade": "14",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-570014-2022",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-571403-1998",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-571504-1998",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR2-570407-1998",
+    "position": "MASTER TEACHER II",
+    "salary_grade": "19",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR3-570003-2022",
+    "position": "MASTER TEACHER III",
+    "salary_grade": "20",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570279-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH1-570018-2018",
+    "position": "TEACHER I",
+    "salary_grade": "11",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH1-571020-2002",
+    "position": "TEACHER I",
+    "salary_grade": "11",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH1-594322-1998",
+    "position": "TEACHER I",
+    "salary_grade": "11",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570166-2011",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-573671-1998",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570897-2025",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-571936-1998",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-571950-1998",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "BASILAN NATIONAL HIGH SCHOOL",
+    "source_file": "09 BNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-PDO1-570110-2026",
+    "position": "PROJECT DEVELOPMENT OFFICER I",
+    "salary_grade": "11",
+    "office": "BEGANG NATIONAL HIGH SCHOOL",
+    "source_file": "12 BeNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570275-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "BEGANG NATIONAL HIGH SCHOOL",
+    "source_file": "12 BeNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570027-2009",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "BEGANG NATIONAL HIGH SCHOOL",
+    "source_file": "12 BeNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADA1-570014-2004",
+    "position": "ADMINISTRATIVE AIDE I",
+    "salary_grade": "01",
+    "office": "DIVISION OF ISABELA CITY",
+    "source_file": "01 DIC AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADA1-570015-2004",
+    "position": "ADMINISTRATIVE AIDE I",
+    "salary_grade": "01",
+    "office": "DIVISION OF ISABELA CITY",
+    "source_file": "01 DIC AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GCOOR1-570010-1998",
+    "position": "GUIDANCE COORDINATOR I",
+    "salary_grade": "14",
+    "office": "DIVISION OF ISABELA CITY",
+    "source_file": "01 DIC AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570023-2016",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570024-2016",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570025-2016",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570026-2016",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-GUIDC2-570027-2016",
+    "position": "GUIDANCE COUNSELOR II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SPST2-570002-2022",
+    "position": "SPECIAL SCIENCE TEACHER II",
+    "salary_grade": "16",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570039-2016",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570081-2017",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570091-2017",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570892-2017",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570001-2016",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY - SENIOR HIGH SCHOOL",
+    "source_file": "05 SHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADOF2-570055-2025",
+    "position": "ADMINISTRATIVE OFFICER II",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH1-570061-2021",
+    "position": "HEAD TEACHER I",
+    "salary_grade": "14",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH2-570009-2024",
+    "position": "HEAD TEACHER II",
+    "salary_grade": "15",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH3-570009-2021",
+    "position": "HEAD TEACHER III",
+    "salary_grade": "16",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH4-570001-2018",
+    "position": "HEAD TEACHER IV",
+    "salary_grade": "17",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-570052-2018",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-570055-2014",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-571426-1998",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-571443-1998",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR1-571456-1998",
+    "position": "MASTER TEACHER I",
+    "salary_grade": "18",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR2-570010-2000",
+    "position": "MASTER TEACHER II",
+    "salary_grade": "19",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MTCHR2-570041-2022",
+    "position": "MASTER TEACHER II",
+    "salary_grade": "19",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570266-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570267-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570268-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570269-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570270-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570271-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570272-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH1-593553-1998",
+    "position": "TEACHER I",
+    "salary_grade": "11",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570082-2025",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570087-2010",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-570369-2021",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH2-571906-1998",
+    "position": "TEACHER II",
+    "salary_grade": "12",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570040-2006",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570134-2013",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570444-2018",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570937-2020",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-571645-2020",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-572678-2025",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY ELEMENTARY EDUCATION",
+    "source_file": "06 ELEMENTARY AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-571562-2020",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "DIVISION OF ISABELA CITY KINDERGARTEN EDUCATION",
+    "source_file": "08 KINDER AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH2-570014-2022",
+    "position": "HEAD TEACHER II",
+    "salary_grade": "15",
+    "office": "GERAS INTEGRATED SCHOOL",
+    "source_file": "24 GIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570274-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "GERAS INTEGRATED SCHOOL",
+    "source_file": "24 GIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-571277-2025",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "GERAS INTEGRATED SCHOOL",
+    "source_file": "24 GIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-572675-2025",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "GERAS INTEGRATED SCHOOL",
+    "source_file": "24 GIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570273-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "ISABELA CITY NATIONAL HIGH SCHOOL",
+    "source_file": "21 ICNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-TCH3-570475-2018",
+    "position": "TEACHER III",
+    "salary_grade": "13",
+    "office": "ISABELA CITY NATIONAL HIGH SCHOOL",
+    "source_file": "21 ICNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-HTEACH1-570027-2013",
+    "position": "HEAD TEACHER I",
+    "salary_grade": "14",
+    "office": "KUMALARANG NATIONAL HIGH SCHOOL",
+    "source_file": "19 KNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADAS2-570020-2018",
+    "position": "ADMINISTRATIVE ASSISTANT II",
+    "salary_grade": "08",
+    "office": "MALAMAWI NATIONAL HIGH SCHOOL",
+    "source_file": "10 MNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570277-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "MALAMAWI NATIONAL HIGH SCHOOL",
+    "source_file": "10 MNHS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADOF2-570217-2023",
+    "position": "ADMINISTRATIVE OFFICER II",
+    "salary_grade": "11",
+    "office": "OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT",
+    "source_file": "02 OSDS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-ADOF2-570820-2022",
+    "position": "ADMINISTRATIVE OFFICER II",
+    "salary_grade": "11",
+    "office": "OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT",
+    "source_file": "02 OSDS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SDS-570002-2002",
+    "position": "SCHOOLS DIVISION SUPERINTENDENT",
+    "salary_grade": "26",
+    "office": "OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT",
+    "source_file": "02 OSDS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-WCHM1-570021-1998",
+    "position": "WATCHMAN I",
+    "salary_grade": "02",
+    "office": "OFFICE OF THE SCHOOLS DIVISION SUPERINTENDENT",
+    "source_file": "02 OSDS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-SCCA1-570276-2026",
+    "position": "SCHOOL COUNSELOR ASSOCIATE I",
+    "salary_grade": "11",
+    "office": "PANIGAYAN INTEGRATED SCHOOL",
+    "source_file": "20 PIS AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-DENT2-570006-2017",
+    "position": "DENTIST II",
+    "salary_grade": "17",
+    "office": "SCHOOL GOVERNANCE AND OPERATION DIVISION",
+    "source_file": "04 SGOD AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-DENT2-570007-2017",
+    "position": "DENTIST II",
+    "salary_grade": "17",
+    "office": "SCHOOL GOVERNANCE AND OPERATION DIVISION",
+    "source_file": "04 SGOD AUGUST 2026 PSIPOP.pdf"
+  },
+  {
+    "item_number": "OSEC-DECSB-MDOF3-570004-2017",
+    "position": "MEDICAL OFFICER III",
+    "salary_grade": "21",
+    "office": "SCHOOL GOVERNANCE AND OPERATION DIVISION",
+    "source_file": "04 SGOD AUGUST 2026 PSIPOP.pdf"
+  }
+]

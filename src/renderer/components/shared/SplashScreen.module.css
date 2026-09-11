@@ -1,0 +1,15 @@
+.wrap { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; gap: 16px; background: linear-gradient(135deg, #1D226F 0%, #2E3192 68%, #ED1C24 100%); animation: splashFadeIn .35s ease-out both; }
+.seal { position: relative; display: flex; align-items: center; justify-content: center; width: 500px; height: 500px; animation: logoArrive .7s cubic-bezier(.2,.8,.2,1) both; }
+.ring1, .ring2 { position: absolute; width: 450px; height: 450px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); animation: expand 1.8s ease-in-out infinite; }
+.ring2 { animation-delay: .6s; }
+.logo { position: relative; z-index: 1; width: 480px; height: 480px; object-fit: contain; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(255,255,255,.15); }
+.label { color: #fff; font-size: 16px; font-weight: 600; animation: contentRise .55s .2s ease-out both; }
+.sub { color: rgba(255,255,255,.78); font-size: 12px; animation: contentRise .55s .3s ease-out both; }
+.progress { width: 190px; height: 3px; overflow: hidden; border-radius: 3px; background: rgba(255,255,255,.2); animation: contentRise .55s .35s ease-out both; }
+.progress span { display: block; width: 45%; height: 100%; border-radius: inherit; background: #fff; animation: progressSweep 1.05s ease-in-out infinite; }
+@keyframes expand { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.2); opacity: 0; } }
+@keyframes splashFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes logoArrive { from { opacity: 0; transform: scale(.72) rotate(-5deg); } to { opacity: 1; transform: scale(1); } }
+@keyframes contentRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes progressSweep { from { transform: translateX(-110%); } to { transform: translateX(245%); } }
+@media (prefers-reduced-motion: reduce) { .wrap, .seal, .label, .sub, .progress { animation: none; } .ring1, .ring2 { animation-duration: 3s; } .progress span { animation: none; width: 100%; } }

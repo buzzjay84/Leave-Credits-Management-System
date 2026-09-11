@@ -1,0 +1,3 @@
+.control { display: flex; align-items: center; gap: 7px; color: var(--text-secondary); font-size: 11px; }
+.control select { width: 92px; height: 30px; padding: 0 7px; font-size: 11px; background: var(--surface-2); }
+.compact span { display: none; }

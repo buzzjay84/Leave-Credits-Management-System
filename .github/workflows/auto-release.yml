@@ -1,0 +1,67 @@
+name: Auto Tag and Release
+
+# Validates every push to main, and only when that build succeeds AND the
+# package.json version was actually bumped, creates the "vX.Y.Z" tag and
+# hands off to release.yml (the existing Windows/macOS build + GitHub
+# Release pipeline) to do the real cross-platform packaging. If the build
+# here fails, or the version wasn't bumped, nothing is tagged and no
+# release workflow runs.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  build-and-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      # No VITE_SUPABASE_* env needed — supabase.js falls back to the public
+      # project URL/anon key baked in as defaults when these are unset.
+      - name: Build renderer
+        run: npm run build
+
+      - name: Determine version and whether it's already tagged
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="v$VERSION"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create and push the release tag
+        if: steps.version.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      - name: Trigger the cross-platform release build
+        if: steps.version.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run release.yml --ref "${{ steps.version.outputs.tag }}"

@@ -1,0 +1,83 @@
+.bar {
+  /* The LCMS wordmark contains dark-blue text and must always sit on the
+     light brand palette, independently of the application theme. */
+  --sdo-blue: #2E3192;
+  --sdo-blue-dark: #1D226F;
+  --sdo-yellow: #FFF200;
+  --maroon-bg: #F2F3FF;
+  --surface-2: #ffffff;
+  --text-primary: #1a1a18;
+  --text-secondary: #444440;
+  --border: #e4e4e0;
+  --border-strong: #c8c8c2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  height: 52px;
+  background: #ffffff;
+  border-bottom: 3px solid var(--sdo-gold);
+  flex-shrink: 0;
+  z-index: 50;
+}
+
+.brand { display: flex; align-items: center; }
+
+.logo {
+  display: block;
+  width: 190px;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+.version {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.switchBtn { padding: 5px 10px; border-radius: var(--radius); border: 1px solid var(--sdo-gold); background: #FFFBE0; color: var(--sdo-blue-dark); font-size: 11px; font-weight: 600; }
+.switchBtn:hover { background: var(--sdo-yellow); }
+
+.databaseActions { display: flex; gap: 5px; padding-right: 10px; border-right: 1px solid var(--border); }
+.dataBtn {
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  border: 0.5px solid var(--border-strong);
+  background: var(--surface-2);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.dataBtn:hover:not(:disabled) { background: var(--maroon-bg); color: var(--sdo-blue); }
+.dataBtn:disabled { opacity: 0.55; cursor: wait; }
+.updateReadyBtn { padding: 5px 10px; border: 1px solid var(--success-border); border-radius: var(--radius); background: var(--success-bg); color: var(--success); font-size: 11px; font-weight: 600; }
+.salaryAlertBtn { padding: 5px 10px; border: 1px solid var(--warning-border); border-radius: var(--radius); background: var(--warning-bg); color: var(--warning); font-size: 11px; font-weight: 600; }
+.salaryAlertBtn:hover { filter: brightness(0.97); }
+
+.userInfo { display: flex; align-items: center; gap: 6px; }
+
+.roleBadge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.username { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.schoolName { font-size: 11px; color: var(--text-secondary); }
+
+.logoutBtn {
+  padding: 5px 12px;
+  border-radius: var(--radius);
+  border: 0.5px solid var(--border-strong);
+  background: transparent;
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: background .15s;
+}
+.logoutBtn:hover { background: var(--maroon-bg); color: var(--sdo-blue); }

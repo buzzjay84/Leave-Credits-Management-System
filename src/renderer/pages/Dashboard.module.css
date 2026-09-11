@@ -1,0 +1,334 @@
+.page {
+  padding: 24px;
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 260px));
+  gap: 14px;
+  flex-shrink: 0;
+}
+.statCard {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  border-top: 3px solid var(--sdo-blue);
+  box-shadow: var(--shadow-sm);
+}
+.statCard:nth-child(2) { border-top-color: var(--info-solid); }
+.statCard:nth-child(3) { border-top-color: var(--success-solid); }
+.statLabel { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+.statValue { font-size: 28px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.statSub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.card {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--surface-1);
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cardTitle { font-size: 14px; font-weight: 650; }
+
+.headerActions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--surface-1);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.toolbar select { max-width: 160px; flex: none; height: 32px; font-size: 12px; }
+.toolbar select.schoolSelect { max-width: 260px; }
+.toolbar select.personnelStatusSelect { width: auto; max-width: 100%; }
+.personnelNameLayout {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 90px;
+  align-items: center;
+  gap: 10px;
+}
+.personnelBadges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.personnelBadges .pill { margin-left: 0 !important; white-space: nowrap; }
+.searchInput { flex: 1 1 220px; max-width: 360px; height: 32px; font-size: 13px; }
+.personnelCount {
+  align-self: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.adminConsole { height: 100%; display: flex; flex-direction: column; background: var(--surface-0); }
+.adminTabs { display: flex; gap: 6px; padding: 12px 16px 0; flex-shrink: 0; }
+.adminTab, .adminTabActive {
+  position: relative;
+  padding: 9px 18px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .15s, color .15s, border-color .15s, box-shadow .15s;
+}
+.adminTab:hover {
+  background: var(--surface-1);
+  color: var(--sdo-blue);
+  box-shadow: 0 2px 6px rgba(15, 42, 92, 0.16);
+}
+/* Beats the global button[aria-selected="true"] rule (dark navy pill, meant
+   for generic toggle buttons) — this tab has its own blue selected look plus
+   the gold underline below, so it needs matching !important. */
+button.adminTabActive {
+  background: var(--tab-active) !important;
+  color: #fff !important;
+  border-color: var(--tab-active) !important;
+  box-shadow: 0 3px 10px rgba(15, 42, 92, 0.24), 0 1px 3px rgba(15, 42, 92, 0.14) !important;
+  z-index: 1;
+}
+.adminTabActive::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--sdo-gold);
+}
+.adminTabPanel { flex: 1; min-height: 0; padding: 0 16px 16px; }
+.adminTabPanel > .card { height: 100%; border-top-left-radius: 0; }
+.embeddedAdminPage { height: 100%; }
+.embeddedAdminPage > .card { height: 100%; border-top-left-radius: 0; }
+.clickableRow { cursor: pointer; }
+.clickableRow:hover td { background: var(--maroon-bg); }
+.clickableRow:focus { outline: 2px solid var(--sdo-blue); outline-offset: -2px; }
+
+.tableWrap { overflow: auto; flex: 1; min-height: 0; }
+.page > .personnelCard, .ledgerPanel > .personnelCard { flex: none; height: clamp(360px, 65vh, 800px); min-height: 360px; }
+.dashboardTabs { display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.dashboardTab, .dashboardTabActive { padding: 10px 16px; border: 1px solid var(--info-border); border-radius: 8px; background: var(--info-bg); color: var(--info-text); font-size: 13px; font-weight: 600; transition: background-color .15s, color .15s, box-shadow .15s; }
+.dashboardTab:hover { background: var(--sdo-blue-light); color: #fff; border-color: var(--sdo-blue-light); }
+/* Beats the global button[aria-selected="true"] rule (dark navy pill) so this
+   tab matches the same blue used for every other role's active tab. */
+button.dashboardTabActive { background: var(--sdo-blue) !important; color: #fff !important; border-color: var(--sdo-blue) !important; box-shadow: 0 3px 8px rgba(15, 42, 92, 0.24) !important; }
+.ledgerPanel { display: flex; flex-direction: column; gap: 18px; flex-shrink: 0; }
+.ledgerPanel[hidden] { display: none; }
+.page > [role='tabpanel'] { flex-shrink: 0; }
+.comingSoon { max-width: 680px; padding: 48px 24px; text-align: center; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); color: var(--text-muted); }
+.comingSoon h2 { color: var(--text-primary); margin-bottom: 8px; }
+.personnelCard > .tableWrap { overflow: auto; min-height: 0; flex: 1 1 0; }
+.pagination { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary); font-size: 12px; flex-shrink: 0; }
+.pagination select { width: 68px; margin: 0 4px; }
+
+.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table th {
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--maroon-bg);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.table td {
+  text-align: center;
+  padding: 11px 14px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: middle;
+}
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:nth-child(even) { background: var(--surface-1); }
+.table tr:hover td { background: var(--maroon-bg); }
+
+.nameFirstColumn th:first-child,
+.nameFirstColumn td:first-child:not([colspan]),
+.table th.nameCell,
+.table td.nameCell { text-align: left; }
+
+.nameCell { font-size: 13px; font-weight: 500; }
+button.nameButton {
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+button.nameButton:hover:not(:disabled) { background: transparent !important; color: var(--sdo-blue) !important; text-decoration-color: currentColor; }
+.subCell { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+.remarksCell { font-size: 11px; color: var(--text-muted); max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.creditCell { font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums; color: var(--info-text); background: var(--info-bg); }
+.maroon { color: var(--sdo-blue); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.pillTeaching { background: var(--info-bg); color: var(--info-text); }
+.pillNT { background: var(--success-bg); color: var(--success); }
+.pillOk { background: var(--success-bg); color: var(--success); }
+.pillWarn { background: var(--warning-bg); color: var(--warning); }
+.pillInfo { background: var(--accent-bg); color: var(--accent-text); }
+.pillReject { background: var(--danger-bg); color: var(--danger); }
+.pillMuted { background: var(--surface-1); color: var(--text-muted); }
+
+.inlineError { padding: 12px 16px; color: var(--danger); font-size: 12px; }
+.inlineSuccess { padding: 10px 16px; color: var(--success); background: var(--success-bg); font-size: 12px; }
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.infoBox {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+.infoBoxBlue {
+  background: var(--info-bg);
+  border: 0.5px solid var(--info-border);
+  color: var(--info-text);
+}
+.infoBoxWarn {
+  background: var(--warning-bg);
+  border: 0.5px solid var(--warning-border);
+  color: var(--warning);
+}
+.infoBoxDanger {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* Buttons */
+button.btnPrimary {
+  padding: 6px 14px;
+  background: var(--btn-navy) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background .15s;
+}
+button.btnPrimary:hover:not(:disabled) { background: var(--btn-navy-dark) !important; }
+
+button.btnOutline {
+  padding: 6px 14px;
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: var(--radius);
+  font-size: 12px;
+  transition: background .15s;
+}
+button.btnOutline:hover:not(:disabled) { background: var(--surface-0) !important; }
+
+button.btnSm {
+  padding: 3px 10px;
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: 5px;
+  font-size: 11px;
+  transition: background .15s;
+}
+button.btnSm:hover:not(:disabled) { background: var(--surface-0) !important; }
+button.btnPrimarySm { padding: 3px 10px; background: var(--btn-navy) !important; color: #fff !important; border: 0 !important; border-radius: 5px; font-size: 11px; }
+button.btnPrimarySm:hover:not(:disabled) { background: var(--btn-navy-dark) !important; }
+button.btnDangerSm { padding: 3px 10px; background: transparent !important; color: var(--danger) !important; border: 0.5px solid var(--danger-border) !important; border-radius: 5px; font-size: 11px; }
+button.btnDangerSm:hover:not(:disabled) { background: var(--danger-bg) !important; }
+button.btnInfoSm { padding: 3px 10px; background: var(--info-solid) !important; color: #fff !important; border: 0 !important; border-radius: 5px; font-size: 11px; }
+button.btnInfoSm:hover:not(:disabled) { filter: brightness(0.9); }
+button.btnWarnSm { padding: 3px 10px; background: var(--warning-solid) !important; color: #fff !important; border: 0 !important; border-radius: 5px; font-size: 11px; }
+button.btnWarnSm:hover:not(:disabled) { filter: brightness(0.9); }
+button.btnSuccessSm { padding: 3px 10px; background: var(--success-solid) !important; color: #fff !important; border: 0 !important; border-radius: 5px; font-size: 11px; }
+button.btnSuccessSm:hover:not(:disabled) { filter: brightness(0.92); }
+.btnSuccessSm:hover { filter: brightness(0.9); }
+
+.transactionCard { flex: none; max-height: 280px; }
+.transactionCard .table { min-width: 700px; }
+.monthFilters { display: flex; gap: 8px; flex-wrap: wrap; }
+.monthFilters select { width: 150px; height: 36px; }
+.monthFilters select:last-child { width: 96px; }
+.transactionCard .emptyState { padding: 22px 14px; }
+.staffPanel { width: 100%; max-width: 980px; flex: none; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); box-shadow: var(--shadow-sm); overflow: hidden; }
+.staffPanelBody { padding: 16px; display: grid; gap: 12px; font-size: 12px; color: var(--text-secondary); }
+.staffSearch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 10px; align-items: end; }
+.staffSearch label { display: grid; gap: 5px; font-weight: 600; }
+.staffSearch button { min-height: 34px; }
+.staffResults { max-height: 200px; overflow: auto; }
+.staffResult { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--border); }
+.staffResult button { flex-shrink: 0; }
+.contextMenu { position: fixed; z-index: 100; width: 224px; padding: 5px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--surface-2); box-shadow: var(--shadow-md); }
+.contextMenu button { width: 100%; padding: 9px 12px; text-align: left; border: 0; border-radius: 5px; background: transparent; color: var(--danger); font-size: 13px; }
+.contextMenu button:hover, .contextMenu button:focus-visible { background: var(--danger-bg); }
+.infoBox { max-width: 1000px; }
+
+@media (max-width: 760px) {
+  .page { padding: 12px; gap: 12px; }
+  .statsRow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .statCard { padding: 12px; }
+  .statValue { font-size: 24px; }
+  .toolbar select { max-width: 100%; }
+  .card { flex-shrink: 0; min-height: 240px; }
+  .transactionCard { min-height: 0; }
+  .staffSearch { grid-template-columns: 1fr; }
+}
