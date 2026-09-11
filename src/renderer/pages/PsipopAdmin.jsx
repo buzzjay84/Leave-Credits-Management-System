@@ -1,15 +1,16 @@
 import { useMemo, useRef, useState } from 'react'
 import { useEmployees } from '@/hooks/useEmployees'
 import { useAuth } from '@/hooks/useAuth'
-import { comparePsipop, historyUpdate } from '@/utils/psipop'
+import { comparePsipop, draftEmployeeFromPsipopRecord, historyUpdate } from '@/utils/psipop'
 import { readPsipop } from '@/utils/readPsipop'
 import { itemUpdates, listPsipopItems, savePsipopItems } from '@/utils/psipopItems'
 import { stripPsipopImportNotes } from '@/utils/personnel'
 import { supabase } from '@/utils/supabase'
+import EmployeeModal from '@/components/HRMO/EmployeeModal'
 import styles from './PsipopAdmin.module.css'
 
 export default function PsipopAdmin() {
-  const { employees, loading, error, updateEmployee, fetch } = useEmployees()
+  const { employees, loading, error, addEmployee, updateEmployee, fetch } = useEmployees()
   const { user } = useAuth()
   const [records, setRecords] = useState([])
   const [resolutions, setResolutions] = useState({})
@@ -21,6 +22,7 @@ export default function PsipopAdmin() {
   const [dragging, setDragging] = useState(false)
   const [cleanupBusy, setCleanupBusy] = useState(false)
   const [cleanupMessage, setCleanupMessage] = useState('')
+  const [addTarget, setAddTarget] = useState(null)
   const input = useRef(null)
   const lock = useRef(false)
   const rows = useMemo(() => comparePsipop(records, employees, resolutions), [records, employees, resolutions])
@@ -108,8 +110,11 @@ export default function PsipopAdmin() {
   return <section className={styles.page} aria-busy={busy}>
     <div><h2>Update PSIPOP</h2><p>Upload the latest PSIPOP to compare existing personnel and update the roster. Previous values are retained for service-record preparation.</p></div>
     <button type="button" className={`${styles.drop} ${dragging ? styles.dragging : ''}`} disabled={busy || loading || Boolean(error)}
-      onClick={() => input.current.click()} onDragOver={event => { event.preventDefault(); setDragging(true) }}
-      onDragLeave={() => setDragging(false)} onDrop={event => { event.preventDefault(); setDragging(false); if (!busy && !loading && !error) scan(event.dataTransfer.files) }}>
+      onClick={() => input.current.click()}
+      onDragEnter={event => { console.log('[psipop] dragenter', event.dataTransfer?.types); event.preventDefault(); setDragging(true) }}
+      onDragOver={event => { console.log('[psipop] dragover', event.dataTransfer?.types); event.preventDefault(); setDragging(true) }}
+      onDragLeave={() => { console.log('[psipop] dragleave'); setDragging(false) }}
+      onDrop={event => { console.log('[psipop] drop', event.dataTransfer?.files?.length, [...(event.dataTransfer?.files || [])].map(f => f.name)); event.preventDefault(); setDragging(false); if (!busy && !loading && !error) scan(event.dataTransfer.files) }}>
       <strong>{busy ? 'Processing PSIPOP…' : 'Drop new PSIPOP files here'}</strong><span>or click to browse · PDF, JSON or CSV · up to 50 MB per file</span>
     </button>
     <input ref={input} type="file" accept=".pdf,.json,.csv" multiple hidden onChange={event => scan(event.target.files)} />
@@ -133,6 +138,9 @@ export default function PsipopAdmin() {
           {row.reason || (row.changes.length ? row.changes.map(c => <div key={c.field}>{c.field.replaceAll('_', ' ')}: {String(c.before ?? '—')} → {String(c.after ?? '—')}</div>) : 'Already current')}
           {row.status === 'Review' && row.possibleMatches && <div className={styles.reconcile}>
             {row.possibleMatches.map(e => <small key={e.id}>Possible match: {e.last_name}, {e.first_name} {e.middle_name} · {e.item_number}</small>)}
+            {row.possibleMatches.length === 0 && (
+              <button disabled={busy} onClick={() => setAddTarget(draftEmployeeFromPsipopRecord(row.record))}>+ Add as new personnel</button>
+            )}
             <label>Link to existing personnel<select aria-label={`Reconcile ${row.record.name}`} disabled={busy} value={choices[index]?.employeeId || ''} onChange={event => setChoices(previous => ({ ...previous, [index]: { ...previous[index], employeeId: event.target.value } }))}>
               <option value="">Leave unresolved</option>{employees.map(e => <option key={e.id} value={e.id}>{e.last_name}, {e.first_name} {e.middle_name} · {e.employee_no || e.item_number}</option>)}
             </select></label>
@@ -148,5 +156,14 @@ export default function PsipopAdmin() {
       {history.map(entry => <tr key={entry.id}><td>{entry.name}</td><td>{entry.source_file}<small>PSIPOP as of {entry.effective_date}</small><small>Recorded {new Date(entry.recorded_at).toLocaleString()} by {entry.recorded_by}</small></td><td>{entry.changes.map(c => <div key={c.field}>{c.field.replaceAll('_', ' ')}: {String(c.before ?? '—')} → {String(c.after ?? '—')}</div>)}</td></tr>)}
       {!history.length && <tr><td colSpan="3">No matching PSIPOP update history yet.</td></tr>}
     </tbody></table></div>
+    {addTarget && <EmployeeModal
+      employee={addTarget}
+      onSave={async data => {
+        const result = await addEmployee(data)
+        if (result.success && !result.pendingSync) setAddTarget(null)
+        return result
+      }}
+      onClose={() => setAddTarget(null)}
+    />}
   </section>
 }

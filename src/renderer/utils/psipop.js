@@ -1,4 +1,5 @@
 import { SCHOOLS } from './schools.js'
+import { titleCase } from './personnel.js'
 
 const norm = value => String(value ?? '').trim().replace(/\s+/g, ' ').toUpperCase()
 const tin = value => { const digits = String(value || '').replace(/\D/g, ''); return /^\d{9}(000)?$/.test(digits) ? digits.slice(0, 9) : '' }
@@ -74,6 +75,46 @@ export function comparePsipop(records, employees, resolutions = {}) {
   for (const row of rows) if (row.record.item_number) items.set(norm(row.record.item_number), (items.get(norm(row.record.item_number)) || 0) + 1)
   return rows.map(row => row.employee && (counts.get(row.employee.id) > 1 || items.get(norm(row.record.item_number)) > 1)
     ? { ...row, status: 'Review', reason: 'Duplicate person or item in uploaded files.' } : row)
+}
+
+// PSIPOP reconciliation only ever updates an existing employee — a row with
+// no reliable existing match ("Review", no possibleMatches) never becomes a
+// personnel record on its own, it just sits there needing a human to add
+// the person. This turns that PSIPOP row into a draft for EmployeeModal's
+// existing "Add Employee" flow (the same shape VacantItemsAdmin uses to
+// prefill a vacancy fill), so HRMO only has to review and save instead of
+// retyping everything by hand.
+export function draftEmployeeFromPsipopRecord(record) {
+  const emp_type = /TEACHER/i.test(record.position_raw || '') ? 'Teaching' : 'Non-Teaching'
+  const school = SCHOOLS.find(s => norm(s.name) === norm(record.office))
+  const isSchoolBased = emp_type === 'Teaching' || Boolean(school)
+  const [lastRaw, restRaw] = String(record.name || '').split(',').map(part => part.trim())
+  const [firstRaw, ...middleRaw] = (restRaw || '').split(/\s+/).filter(Boolean)
+  const grade = record.salary_grade != null && record.salary_grade !== '' ? Number(record.salary_grade) : null
+  const step = record.step != null && record.step !== '' ? Number(record.step) : null
+  const annual = record.actual_salary != null ? Number(String(record.actual_salary).replace(/,/g, '')) : null
+  const parseOrBlank = (value, birth = false) => { try { return value ? sourceDate(value, birth) : '' } catch { return '' } }
+  return {
+    item_number: record.item_number || '',
+    position: titleCase(record.position_raw || ''),
+    salary_grade: Number.isInteger(grade) && grade >= 1 && grade <= 33 ? String(grade) : '',
+    salary_step: Number.isInteger(step) && step >= 1 && step <= 8 ? step : 1,
+    salary_step_mode: 'manual',
+    emp_type,
+    emp_status: record.status_code === 'T' ? 'Temporary' : 'Permanent',
+    work_assignment: emp_type === 'Non-Teaching' ? (school ? 'School-Based' : 'SDO-Based') : '',
+    assigned_school_id: isSchoolBased ? (school?.id || '') : '',
+    hired_date: parseOrBlank(record.appointment_date),
+    salary_step_basis_date: parseOrBlank(record.promotion_date),
+    birth_date: parseOrBlank(record.dob, true),
+    tin_number: tin(record.tin) || '',
+    monthly_salary: Number.isFinite(annual) && annual > 0 ? Math.round(annual / 12 * 100) / 100 : '',
+    last_name: titleCase(lastRaw || ''),
+    first_name: titleCase(firstRaw || ''),
+    middle_name: titleCase(middleRaw.join(' ')),
+    nash_passer: false, cti_item: false,
+    notes: `From PSIPOP (${record.file}${record.office ? ` — ${record.office}` : ''}) — no existing roster match found.`,
+  }
 }
 
 export function historyUpdate(row, effectiveDate, actor, batchId) {
