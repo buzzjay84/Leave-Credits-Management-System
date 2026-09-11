@@ -56,15 +56,23 @@ export function useEmployees() {
       const isAoiiScoped = user?.role === 'aoii' && user?.school_id
 
       // AOII sees only their school; HRMO sees all
+      //
+      // Every ordered column below (last_name, expires_on, created_at) can
+      // repeat across rows. fetchAllRows pages through .range() as separate
+      // query executions, and without a unique tiebreaker Postgres doesn't
+      // guarantee the same relative order for tied rows between them — a
+      // row tied with others right at a page boundary could silently be
+      // skipped (or duplicated). `id` is unique, so add it as a secondary
+      // sort to make the paging deterministic.
       const { data, error: err } = await fetchAllRows(() => {
-        let query = supabase.from('leave_employees').select('*').order('last_name', { ascending: true })
+        let query = supabase.from('leave_employees').select('*').order('last_name', { ascending: true }).order('id', { ascending: true })
         if (isAoiiScoped) query = query.eq('school_id', user.school_id)
         return query
       })
       if (err) throw err
       let employeesWithCto = data || []
       const { data: ctoRows, error: ctoError } = await fetchAllRows(() =>
-        supabase.from('leave_cto_credits').select('*').order('expires_on', { ascending: true })
+        supabase.from('leave_cto_credits').select('*').order('expires_on', { ascending: true }).order('id', { ascending: true })
       )
       if (!ctoError) {
         employeesWithCto = employeesWithCto.map(employee => ({
@@ -73,7 +81,7 @@ export function useEmployees() {
         }))
       }
       const { data: transactions, error: transactionError } = await fetchAllRows(() => {
-        let transactionQuery = supabase.from('leave_transactions').select('*').order('created_at', { ascending: false })
+        let transactionQuery = supabase.from('leave_transactions').select('*').order('created_at', { ascending: false }).order('id', { ascending: false })
         if (isAoiiScoped) transactionQuery = transactionQuery.eq('school_id', user.school_id)
         return transactionQuery
       })
