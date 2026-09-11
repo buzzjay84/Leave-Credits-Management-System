@@ -60,8 +60,25 @@ export default function PsipopAdmin() {
       }
       await savePsipopItems(items)
       window.dispatchEvent(new Event('lcms:personnel-updated'))
-      setRecords([])
-      setMessage(`Updated ${count} personnel with history and refreshed ${items.length} PSIPOP item statuses.${pending ? ' Personnel changes are saved locally; cloud synchronization is pending.' : ''}`)
+      // Keep unresolved "Review" rows on screen instead of discarding the
+      // whole scan — those are the ones with no reliable existing match
+      // (new hires, reclassified items, name/TIN mismatches) and were
+      // otherwise silently lost the moment you clicked Update roster, with
+      // no record anywhere that they still needed manual reconciliation or
+      // a new Personnel entry.
+      let nextIndex = 0
+      const reviewRecords = []
+      const reviewResolutions = {}
+      rows.forEach((row, index) => {
+        if (row.status !== 'Review') return
+        reviewRecords.push(records[index])
+        if (resolutions[index]) reviewResolutions[nextIndex] = resolutions[index]
+        nextIndex++
+      })
+      setRecords(reviewRecords)
+      setResolutions(reviewResolutions)
+      setChoices({})
+      setMessage(`Updated ${count} personnel with history and refreshed ${items.length} PSIPOP item statuses.${pending ? ' Personnel changes are saved locally; cloud synchronization is pending.' : ''}${reviewRecords.length ? ` ${reviewRecords.length} row(s) still need review below — reconcile them or add them in Personnel.` : ''}`)
       await fetch()
     } catch (err) { setRecords([]); setMessage(`${count} personnel updated with history. Stopped: ${err.message}. Scan again to compare the remaining changes.`) }
     finally { lock.current = false; setBusy(false) }
